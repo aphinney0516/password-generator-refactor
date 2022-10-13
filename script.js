@@ -1,8 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Get length and selected character types from user
 function askUser() {
-  // get length and selected character types from user
   var passLength = parseInt (window.prompt("Please enter your password length."));
   console.log(passLength);
   if(passLength === "" || passLength === null || isNaN(passLength) || passLength < 8 || passLength > 128) {
@@ -15,16 +15,16 @@ function askUser() {
     characterString += "abcdefghijklmnopqrstuvwxyz"
   }
   if(window.confirm("Would you like uppercase characters?")) {
-    // console.log("Add lowercase here.");
+    // console.log("Add uppercase here.");
     characterString += "abcdefghijklmnopqrstuvwxyz".toUpperCase();
   }
   if(window.confirm("Would you like numbers characters?")) {
-    // console.log("Add lowercase here.");
+    // console.log("Add numbers here.");
     characterString += "0123456789";
   }
   if(window.confirm("Would you like special characters?")) {
-    // console.log("Add lowercase here.");
-    characterString += "~!@#$%&*()_+";
+    // console.log("Add special characters here.");
+    characterString += "~!@#$%&*()_+-=<>/?\|}{;:`',.";
   }
   // console.log(characterString);
   if(characterString === "") {
@@ -36,8 +36,8 @@ function askUser() {
   }
 }
 
+  // Return a password that matches the legnth and character type that the user selects
 function generatePassword() {
-  // return a password that matches the legnth and character type that the user selects
   var options = askUser();
   if(options === undefined) {
     return "Please try again."
